@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía Interactiva de Puntos de Interés — España</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <span class="header-icon" aria-hidden="true">🗺️</span>
+        <div>
+          <div class="header-title">Guía Interactiva</div>
+          <div class="header-subtitle">Puntos de interés · España</div>
+        </div>
+      </div>
+      <div class="geo-status" aria-live="polite">
+        <span id="geoDot" class="geo-dot"></span>
+        <span id="geoLabel">Sin ubicación activa</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="geo-error-banner" id="geoErrorBanner" hidden>
+    <span class="geo-error-icon" aria-hidden="true">⚠️</span>
+    <p id="geoErrorMsg">Error de ubicación</p>
+    <button class="btn-retry" id="btnRetry" type="button">Reintentar</button>
+  </section>
+
+  <main class="main-layout">
+    <section class="poi-panel" aria-labelledby="poiPanelTitle">
+      <div class="poi-panel-header">
+        <h2 id="poiPanelTitle">Puntos de interés</h2>
+        <p class="poi-panel-hint">Selecciona un lugar para ver su guía multimedia.</p>
+      </div>
+      <ul class="poi-list" id="poiList" role="list"></ul>
+      <div class="geo-btn-wrap">
+        <button class="btn-geo" id="btnGeo" type="button">
+          <span class="btn-geo-icon" aria-hidden="true">📍</span>
+          Detectar mi ubicación
+        </button>
+        <p class="geo-hint">La ubicación solo se usa localmente para calcular proximidades.</p>
+      </div>
+    </section>
+
+    <section class="detail-panel" aria-labelledby="detailPanelTitle">
+      <div class="detail-empty" id="detailEmpty">
+        <span class="detail-empty-icon" aria-hidden="true">📌</span>
+        <h3>Elige un punto de interés</h3>
+        <p>Selecciona un lugar en la lista o en el mini-mapa para ver su descripción y guía multimedia.</p>
+      </div>
+
+      <div class="detail-content" id="detailContent" hidden>
+        <div class="proximity-alert" id="proximityAlert" hidden>
+          <span aria-hidden="true">✅</span>
+          <span id="proximityMsg">Estás cerca de un punto de interés.</span>
+        </div>
+
+        <div class="detail-meta">
+          <span class="detail-category" id="detailCategory"></span>
+          <span class="detail-coords" id="detailCoords"></span>
+        </div>
+        <h2 class="detail-title" id="detailTitle"></h2>
+        <p class="detail-description" id="detailDesc"></p>
+
+        <section class="player-section" aria-labelledby="playerLabel">
+          <div class="player-label" id="playerLabel">
+            <span id="playerTypeIcon">🎧</span>
+            <span id="playerTypeLabel">Guía multimedia</span>
+          </div>
+          <div class="media-container" id="mediaContainer"></div>
+          <div class="custom-controls">
+            <button class="ctrl-btn" id="btnPlayPause" type="button" aria-label="Reproducir / Pausar">
+              <span id="playIcon">▶</span>
+            </button>
+            <button class="ctrl-btn" id="btnStop" type="button" aria-label="Detener reproducción">⏹</button>
+            <div class="progress-wrap">
+              <div class="progress-bar" id="progressBar" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+              <div class="time-display">
+                <span id="timeElapsed">0:00</span> / <span id="timeDuration">0:00</span>
+              </div>
+            </div>
+            <div class="volume-wrap">
+              <button class="volume-icon" id="volumeIcon" type="button" aria-label="Silenciar">🔉</button>
+              <input class="volume-slider" id="volumeSlider" type="range" min="0" max="1" step="0.05" value="0.6" aria-label="Volumen">
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <section class="map-section" aria-labelledby="mapSectionTitle">
+    <div class="map-section-header">
+      <h2 id="mapSectionTitle">Mini-mapa real</h2>
+      <p>Mapa real de los puntos de interés con ubicaciones geográficas reales.</p>
+    </div>
+    <div class="mini-map" id="miniMap"></div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Guía Interactiva de Puntos de Interés — España</p>
+    <p class="footer-privacy">La posición se procesa localmente y nunca se envía a ningún servidor.</p>
+    <p>&copy; <span id="footerYear"></span></p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
