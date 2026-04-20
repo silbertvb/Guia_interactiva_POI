@@ -6,9 +6,9 @@
 
 ## Descripción de la aplicación
 
-La **Guía Interactiva** es una aplicación web que permite explorar puntos de interés reales en España. Para cada lugar, la app ofrece una descripción detallada, un reproductor multimedia HTML5 con guía de audio o vídeo, y un sistema de geolocalización que detecta automáticamente si el usuario se encuentra físicamente cerca de alguno de los puntos registrados.
+La **Guía Interactiva** es una aplicación web que permite explorar puntos de interés reales en España. Para cada lugar, la app ofrece una descripción detallada, un reproductor multimedia HTML5 con guía de audio o vídeo, con regulador de volumen, y un sistema de geolocalización que detecta automáticamente si el usuario se encuentra físicamente cerca de alguno de los puntos registrados.
 
-Además, el mini-mapa ahora se muestra con un mapa real de Leaflet que posiciona los POI según sus coordenadas reales, en lugar de una representación abstracta.
+Además, el mini-mapa que muestra con un mapa real de Leaflet que posiciona los POI según sus coordenadas reales.
 
 La aplicación funciona completamente en el navegador, sin necesidad de servidores externos ni plugins de terceros, y está diseñada para funcionar correctamente tanto en escritorio como en dispositivos móviles.
 
@@ -69,7 +69,6 @@ guia-interactiva/
     └── Domingo_de_golf.mp4
 ```
 
-> **Nota sobre los archivos multimedia:** Los recursos locales son ejemplos de soporte de la aplicación. El reproductor maneja correctamente errores de carga y muestra un aviso si el archivo no está disponible.
 
 ---
 
@@ -108,13 +107,13 @@ La posición geográfica es un **dato personal sensible** según el RGPD. Conoce
 
 ### Cómo aborda estos riesgos esta aplicación
 
-| Medida | Implementación |
-|--------|---------------|
-| **Proceso local** | Las coordenadas del usuario nunca salen del dispositivo. |
-| **Mínima retención** | La posición solo se guarda en memoria y se pierde al recargar. |
-| **Consentimiento explícito** | La geolocalización solo se activa con el botón "Detectar mi ubicación". |
-| **Transparencia** | El pie de página indica que los datos no se transmiten. |
-| **Finalidad específica** | La ubicación solo se usa para calcular la distancia a los POI. |
+|       Medida           |                   Implementación             |
+|------------------------|----------------------------------------------|
+| Proceso local          | Las coordenadas del usuario nunca salen del dispositivo. |
+| Mínima retención       | La posición solo se guarda en memoria y se pierde al recargar. |
+| Consentimiet.explícito | La geo. solo se activa con el botón "Detectar mi ubicación". |
+| Transparencia          | El pie de página indica que los datos no se transmiten. |
+| Finalidad específica   | La ubicación solo se usa para calcular la distancia a los POI. |
 
 ### Recomendaciones para producción
 
