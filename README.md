@@ -94,7 +94,6 @@ guia-interactiva/
     └── Domingo_de_golf.mp4
 ```
 
-> **Nota sobre los archivos multimedia:** Los recursos locales son ejemplos de soporte de la aplicación. El reproductor maneja correctamente errores de carga y muestra un aviso si el archivo no está disponible.
 
 ---
 
@@ -133,13 +132,13 @@ La posición geográfica es un **dato personal sensible** según el RGPD. Conoce
 
 ### Cómo aborda estos riesgos esta aplicación
 
-| Medida | Implementación |
-|--------|---------------|
-| **Proceso local** | Las coordenadas del usuario nunca salen del dispositivo. |
-| **Mínima retención** | La posición solo se guarda en memoria y se pierde al recargar. |
-| **Consentimiento explícito** | La geolocalización solo se activa con el botón "Detectar mi ubicación". |
-| **Transparencia** | El pie de página indica que los datos no se transmiten. |
-| **Finalidad específica** | La ubicación solo se usa para calcular la distancia a los POI. |
+|       Medida           |                   Implementación             |
+|------------------------|----------------------------------------------|
+| Proceso local          | Las coordenadas del usuario nunca salen del dispositivo. |
+| Mínima retención       | La posición solo se guarda en memoria y se pierde al recargar. |
+| Consentimiet.explícito | La geo. solo se activa con el botón "Detectar mi ubicación". |
+| Transparencia          | El pie de página indica que los datos no se transmiten. |
+| Finalidad específica   | La ubicación solo se usa para calcular la distancia a los POI. |
 
 ### Recomendaciones para producción
 
