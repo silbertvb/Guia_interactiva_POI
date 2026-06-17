@@ -2,15 +2,40 @@
 
 **DAW · Unidad 9 — Desarrollo Web Entorno Cliente**
 
+🔗 **Repositorio:** [https://github.com/silbertvb/Guia_interactiva_POI](https://github.com/silbertvb/Guia_interactiva_POI)
+
 ---
 
-## Descripción de la aplicación
+## 👀 Guía rápida para revisar el proyecto
 
-La **Guía Interactiva** es una aplicación web que permite explorar puntos de interés reales en España. Para cada lugar, la app ofrece una descripción detallada, un reproductor multimedia HTML5 con guía de audio o vídeo, y un sistema de geolocalización que detecta automáticamente si el usuario se encuentra físicamente cerca de alguno de los puntos registrados.
+Al acceder verás la **Guía Interactiva de Puntos de Interés — España**, una aplicación web cliente que combina geolocalización en tiempo real, reproducción multimedia y un mapa interactivo con Leaflet. No requiere backend ni instalación — corre directamente en el navegador.
 
-Además, el mini-mapa ahora se muestra con un mapa real de Leaflet que posiciona los POI según sus coordenadas reales, en lugar de una representación abstracta.
+💡 **Recomendación:** Empieza seleccionando cualquier punto de la lista para ver la experiencia multimedia completa. Luego activa la geolocalización y crea un punto nuevo para explorar las funcionalidades dinámicas.
 
-La aplicación funciona completamente en el navegador, sin necesidad de servidores externos ni plugins de terceros, y está diseñada para funcionar correctamente tanto en escritorio como en dispositivos móviles.
+### Funcionalidades disponibles para revisar
+
+| Sección | Qué puedes explorar |
+|---|---|
+| 🗺️ **Lista de puntos de interés** | Selecciona cualquiera de los 4 POI predefinidos para ver su descripción, coordenadas y reproductor multimedia. Los nombres truncados muestran un **tooltip** al pasar el ratón |
+| 📍 **Detectar mi ubicación** | Activa la geolocalización del navegador. La app calcula la distancia a cada punto en tiempo real y muestra el badge **CERCA** si estás a menos de 500 m |
+| ▶️ **Reproductor multimedia** | Cada POI tiene audio o vídeo asociado con controles personalizados: play/pause, stop, barra de progreso y volumen |
+| 🗾 **Mini-mapa real** | Mapa Leaflet con marcadores en sus coordenadas geográficas reales. Haz clic en cualquier marcador para seleccionar el POI |
+| ➕ **Crear nuevo punto** | Pulsa el botón **+** del panel lateral. Rellena el formulario: nombre, categoría, emoji, descripción, dirección completa (se geocodifica automáticamente vía OpenStreetMap) y archivo multimedia opcional (JPG, PNG, MP3 o MP4 desde tu PC) |
+| ✏️ **Editar punto creado** | Pasa el ratón sobre cualquier punto creado por ti — aparecen los tres puntos **⋮** a la derecha. Al hacer clic se abre el formulario pre-relleno para modificarlo |
+
+### ⚠️ Notas para el revisor
+
+- La geolocalización requiere **HTTPS o localhost** — funciona correctamente con Live Server o servidor local.
+- Los archivos multimedia subidos desde el PC persisten **durante la sesión** (hasta que se recargue la página), usando Object URLs del navegador.
+- Los 4 POI predefinidos tienen sus archivos de audio/vídeo incluidos en el proyecto.
+
+---
+
+## Descripción técnica
+
+La **Guía Interactiva** es una aplicación web que permite explorar puntos de interés reales en España. Para cada lugar, la app ofrece una descripción detallada, un reproductor multimedia HTML5 con guía de audio, vídeo o imagen, y un sistema de geolocalización que detecta automáticamente si el usuario se encuentra físicamente cerca de alguno de los puntos registrados.
+
+El mini-mapa utiliza Leaflet con OpenStreetMap y posiciona los POI según sus coordenadas geográficas reales. La aplicación funciona completamente en el navegador, sin necesidad de servidores externos ni plugins de terceros, y está diseñada para funcionar correctamente tanto en escritorio como en dispositivos móviles.
 
 ---
 

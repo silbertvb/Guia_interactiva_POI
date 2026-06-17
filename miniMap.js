@@ -81,6 +81,22 @@ export function renderizarMiniMapa() {
   }
 }
 
+export function actualizarMarcadorMapa(poi) {
+  if (!map || typeof L === 'undefined') return;
+  const marker = poiMarkers[poi.id];
+  if (!marker) return;
+  marker.setLatLng([poi.lat, poi.lng]);
+  marker.setPopupContent(`<strong>${poi.nombre}</strong><br>${poi.categoria}`);
+}
+
+export function agregarMarcadorMapa(poi) {
+  if (!map || typeof L === 'undefined') return;
+  const marker = L.marker([poi.lat, poi.lng], { title: poi.nombre }).addTo(map);
+  marker.bindPopup(`<strong>${poi.nombre}</strong><br>${poi.categoria}`);
+  marker.on('click', () => seleccionarPoi(poi.id));
+  poiMarkers[poi.id] = marker;
+}
+
 export function actualizarUsuarioEnMapa() {
   if (!map || state.userLat === null || state.userLng === null) return;
 

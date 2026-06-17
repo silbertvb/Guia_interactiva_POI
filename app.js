@@ -11,6 +11,7 @@ import { renderizarListaPoi } from './ui.js';
 import { renderizarMiniMapa } from './miniMap.js';
 import { initPlayerControls } from './player.js';
 import { initGeoListeners } from './geo.js';
+import { initModal } from './modal.js';
 import { footerYear } from './dom.js';
 
 export function init() {
@@ -19,6 +20,7 @@ export function init() {
   renderizarMiniMapa();
   initPlayerControls();
   initGeoListeners();
+  initModal();
 }
 
 init();

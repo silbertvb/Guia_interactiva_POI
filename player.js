@@ -28,10 +28,32 @@ export function cargarMedia(poi) {
     state.mediaElement.pause();
     state.mediaElement.src = '';
     state.mediaElement.load();
+    state.mediaElement = null;
   }
 
   mediaContainer.innerHTML = '';
+
+  if (!poi.media) {
+    playerTypeIcon.textContent = '📌';
+    playerTypeLabel.textContent = 'Sin multimedia';
+    resetearUIReproductor();
+    return;
+  }
+
   const { tipo, src } = poi.media;
+
+  if (tipo === 'imagen') {
+    const img = document.createElement('img');
+    img.src = src;
+    img.className = 'media-image';
+    img.alt = poi.nombre;
+    playerTypeIcon.textContent = '🖼️';
+    playerTypeLabel.textContent = 'Imagen del lugar';
+    mediaContainer.appendChild(img);
+    resetearUIReproductor();
+    return;
+  }
+
   const elemento = tipo === 'video'
     ? document.createElement('video')
     : document.createElement('audio');

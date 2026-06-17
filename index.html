@@ -34,7 +34,11 @@
   <main class="main-layout">
     <section class="poi-panel" aria-labelledby="poiPanelTitle">
       <div class="poi-panel-header">
-        <h2 id="poiPanelTitle">Puntos de interés</h2>
+        <div class="poi-panel-header-top">
+          <h2 id="poiPanelTitle">Puntos de interés</h2>
+          <button class="btn-add-poi" id="btnAddPoi" type="button"
+                  aria-label="Crear nuevo punto de interés">+</button>
+        </div>
         <p class="poi-panel-hint">Selecciona un lugar para ver su guía multimedia.</p>
       </div>
       <ul class="poi-list" id="poiList" role="list"></ul>
@@ -109,6 +113,102 @@
     <p class="footer-privacy">La posición se procesa localmente y nunca se envía a ningún servidor.</p>
     <p>&copy; <span id="footerYear"></span></p>
   </footer>
+
+  <!-- Modal: Nuevo Punto de Interés -->
+  <div id="poiModal" class="modal-overlay" role="dialog" aria-modal="true"
+       aria-labelledby="modalTitle" hidden>
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Nuevo Punto de Interés</h2>
+        <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar">✕</button>
+      </div>
+
+      <form id="poiForm" class="modal-form" novalidate>
+
+        <!-- Emoji + Nombre -->
+        <div class="form-row">
+          <div class="form-group form-group--emoji">
+            <label>Emoji</label>
+            <button type="button" class="emoji-trigger" id="emojiTrigger"
+                    aria-label="Elegir emoji">📍</button>
+            <div class="emoji-picker-wrap" id="emojiPickerWrap" hidden></div>
+          </div>
+          <div class="form-group form-group--grow">
+            <label for="poiNombre">Nombre <span class="required">*</span></label>
+            <input type="text" id="poiNombre" required
+                   placeholder="Nombre del lugar" autocomplete="off">
+          </div>
+        </div>
+
+        <!-- Categoría -->
+        <div class="form-group">
+          <label for="poiCategoria">Categoría <span class="required">*</span></label>
+          <input type="text" id="poiCategoria" required
+                 placeholder="Ej: Música Clásica, Naturaleza, Deporte…">
+        </div>
+
+        <!-- Descripción -->
+        <div class="form-group">
+          <label for="poiDescripcion">Descripción <span class="required">*</span></label>
+          <textarea id="poiDescripcion" rows="3" required
+                    placeholder="Describe el lugar…"></textarea>
+        </div>
+
+        <!-- Dirección + geocodificación -->
+        <div class="form-group">
+          <label>Dirección</label>
+          <div class="address-grid">
+            <input type="text" id="poiCalle"  class="address-calle"
+                   placeholder="Calle y número">
+            <input type="text" id="poiCp"     class="address-cp"
+                   placeholder="Código postal" maxlength="10">
+            <input type="text" id="poiCiudad" class="address-ciudad"
+                   placeholder="Ciudad">
+          </div>
+          <button type="button" class="btn-geocode" id="btnGeocode">
+            📍 Obtener coordenadas
+          </button>
+          <div class="geocode-result" id="geocodeResult" hidden>
+            <span>✅</span>
+            <span id="geoLatSpan"></span> — <span id="geoLngSpan"></span>
+          </div>
+          <div class="geocode-error" id="geocodeError" hidden>
+            <span>⚠️</span>
+            <span id="geocodeErrorMsg"></span>
+          </div>
+        </div>
+
+        <!-- Archivo multimedia -->
+        <div class="form-group">
+          <label>Archivo multimedia <span class="label-optional">(opcional)</span></label>
+          <div class="file-zone" id="fileZone">
+            <input type="file" id="poiMedia"
+                   accept=".jpg,.jpeg,.png,.mp3,.mp4,image/jpeg,image/png,audio/mpeg,video/mp4"
+                   hidden>
+            <div class="file-zone-idle" id="fileZoneIdle">
+              <span class="file-zone-icon">📎</span>
+              <span>Arrastra un archivo o
+                <button type="button" class="btn-file-browse" id="btnFileBrowse">
+                  selecciona aquí
+                </button>
+              </span>
+              <span class="file-zone-formats">JPG · PNG · MP3 · MP4</span>
+            </div>
+            <div class="file-zone-preview" id="fileZonePreview" hidden></div>
+          </div>
+        </div>
+
+        <div class="form-validation-msg" id="formValidationMsg" hidden></div>
+
+        <!-- Acciones -->
+        <div class="modal-actions">
+          <button type="button" class="btn-modal-cancel" id="btnModalCancel">Cancelar</button>
+          <button type="submit" class="btn-modal-submit">✚ Crear punto</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script type="module" src="./app.js"></script>

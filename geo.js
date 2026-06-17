@@ -125,7 +125,8 @@ export function calcularProximidades() {
         badge.className = 'nearby-badge';
         badge.textContent = 'Cerca';
         badge.setAttribute('aria-label', `${poi.nombre} está cerca de ti`);
-        item.appendChild(badge);
+        const distEl = item.querySelector('.poi-item-distance');
+        (distEl ?? item).appendChild(badge);
       }
     } else {
       item?.classList.remove('nearby');
