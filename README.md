@@ -1,7 +1,5 @@
 # 🗺️ Guía Interactiva de Puntos de Interés — España
 
-**DAW · Unidad 9 — Desarrollo Web Entorno Cliente**
-
 🔗 **Repositorio:** [https://github.com/silbertvb/Guia_interactiva_POI](https://github.com/silbertvb/Guia_interactiva_POI)
 
 ---
