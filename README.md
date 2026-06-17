@@ -1,12 +1,9 @@
 # 🗺️ Guía Interactiva de Puntos de Interés — España
 
-🔗 **Repositorio:** [https://github.com/silbertvb/Guia_interactiva_POI](https://github.com/silbertvb/Guia_interactiva_POI)
-
----
-
 ## 👀 Guía rápida para revisar el proyecto
 
-Al acceder verás la **Guía Interactiva de Puntos de Interés — España**, una aplicación web cliente que combina geolocalización en tiempo real, reproducción multimedia y un mapa interactivo con Leaflet. No requiere backend ni instalación — corre directamente en el navegador.
+Al acceder verás la 🔗 **[Guía Interactiva de Puntos de Interés — España]**(https://silbertvb.github.io/Guia_interactiva_POI/)
+, una aplicación web cliente que combina geolocalización en tiempo real, reproducción multimedia y un mapa interactivo con Leaflet. No requiere backend ni instalación — corre directamente en el navegador.
 
 💡 **Recomendación:** Empieza seleccionando cualquier punto de la lista para ver la experiencia multimedia completa. Luego activa la geolocalización y crea un punto nuevo para explorar las funcionalidades dinámicas.
 
